@@ -58,7 +58,7 @@ class _TrajectoryViewState extends State<TrajectoryView> {
         widget.records[i].latitude,
         widget.records[i].longitude,
       );
-      totalDistance += p1.distanceTo(p2);
+      totalDistance += p1.distance(p2);
     }
 
     final currentPoint = _playbackIndex < points.length
