@@ -88,7 +88,7 @@ class _HistoryScreenState extends State<HistoryScreen> with SingleTickerProvider
                         Container(
                           padding: const EdgeInsets.all(10),
                           decoration: BoxDecoration(
-                            color: AppTheme.primaryColor.withValues(alpha: 0.1),
+                            color: AppTheme.primaryColor.withOpacity(0.1),
                             borderRadius: BorderRadius.circular(12),
                           ),
                           child: const Icon(Icons.route_rounded, color: AppTheme.primaryColor, size: 22),
@@ -226,7 +226,7 @@ class _HistoryScreenState extends State<HistoryScreen> with SingleTickerProvider
           border: isActive ? null : Border.all(color: const Color(0xFFE0E0E0)),
           boxShadow: isActive
               ? [BoxShadow(
-                  color: AppTheme.primaryColor.withValues(alpha: 0.3),
+                  color: AppTheme.primaryColor.withOpacity(0.3),
                   blurRadius: 8,
                   offset: const Offset(0, 2),
                 )]
@@ -252,7 +252,7 @@ class _HistoryScreenState extends State<HistoryScreen> with SingleTickerProvider
           Container(
             width: 80, height: 80,
             decoration: BoxDecoration(
-              color: AppTheme.primaryColor.withValues(alpha: 0.1),
+              color: AppTheme.primaryColor.withOpacity(0.1),
               borderRadius: BorderRadius.circular(24),
             ),
             child: const Icon(Icons.route_outlined, size: 40, color: AppTheme.primaryColor),

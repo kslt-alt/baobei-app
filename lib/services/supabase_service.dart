@@ -181,16 +181,16 @@ class SupabaseService {
   Future<int> getUnreadCount(String userId) async {
     final response = await _client
         .from('messages')
-        .select('id', const FetchOptions(count: CountOption.exact))
+        .select('id')
         .eq('to_user_id', userId)
         .eq('is_read', false);
-    return response.count ?? 0;
+    return (response as List).length;
   }
 
   /// ========== 实时订阅 ==========
 
   /// 订阅位置变化
-  RealtimeSubscription subscribeLocations(
+  RealtimeChannel subscribeLocations(
     String pairedUserId,
     Function(LocationRecord) onUpdate,
   ) {
@@ -210,7 +210,7 @@ class SupabaseService {
   }
 
   /// 订阅状态变化
-  RealtimeSubscription subscribeStatus(
+  RealtimeChannel subscribeStatus(
     String pairedUserId,
     Function(StatusRecord) onUpdate,
   ) {
@@ -230,7 +230,7 @@ class SupabaseService {
   }
 
   /// 订阅新消息
-  RealtimeSubscription subscribeMessages(
+  RealtimeChannel subscribeMessages(
     String userId,
     Function(ChatMessage) onMessage,
   ) {

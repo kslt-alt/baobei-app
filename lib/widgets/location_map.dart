@@ -60,7 +60,7 @@ class LocationMap extends StatelessWidget {
                   borderRadius: BorderRadius.circular(10),
                   boxShadow: [
                     BoxShadow(
-                      color: AppTheme.primaryColor.withValues(alpha: 0.4),
+                      color: AppTheme.primaryColor.withOpacity(0.4),
                       blurRadius: 8,
                     ),
                   ],
@@ -93,7 +93,7 @@ class LocationMap extends StatelessWidget {
                   borderRadius: BorderRadius.circular(10),
                   boxShadow: [
                     BoxShadow(
-                      color: AppTheme.accentColor.withValues(alpha: 0.4),
+                      color: AppTheme.accentColor.withOpacity(0.4),
                       blurRadius: 8,
                     ),
                   ],
@@ -111,7 +111,7 @@ class LocationMap extends StatelessWidget {
     final polyline = trajectory != null && trajectory!.isNotEmpty
         ? Polyline(
             points: trajectory!.map((t) => LatLng(t.latitude, t.longitude)).toList(),
-            color: AppTheme.primaryColor.withValues(alpha: 0.6),
+            color: AppTheme.primaryColor.withOpacity(0.6),
             strokeWidth: 3,
           )
         : null;

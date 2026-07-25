@@ -31,7 +31,7 @@ class PartnerCard extends StatelessWidget {
         borderRadius: BorderRadius.circular(20),
         boxShadow: [
           BoxShadow(
-            color: AppTheme.accentColor.withValues(alpha: 0.08),
+            color: AppTheme.accentColor.withOpacity(0.08),
             blurRadius: 16,
             offset: const Offset(0, 4),
           ),

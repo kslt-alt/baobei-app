@@ -92,7 +92,7 @@ class _HomeScreenState extends State<HomeScreen> {
           color: Colors.white,
           boxShadow: [
             BoxShadow(
-              color: Colors.black.withValues(alpha: 0.06),
+              color: Colors.black.withOpacity(0.06),
               blurRadius: 16,
               offset: const Offset(0, -4),
             ),
@@ -226,7 +226,7 @@ class _HomeScreenState extends State<HomeScreen> {
             borderRadius: BorderRadius.circular(16),
             boxShadow: [
               BoxShadow(
-                color: AppTheme.primaryColor.withValues(alpha: 0.25),
+                color: AppTheme.primaryColor.withOpacity(0.25),
                 blurRadius: 12,
                 offset: const Offset(0, 4),
               ),
@@ -263,7 +263,7 @@ class _HomeScreenState extends State<HomeScreen> {
         borderRadius: BorderRadius.circular(24),
         boxShadow: [
           BoxShadow(
-            color: AppTheme.primaryColor.withValues(alpha: 0.08),
+            color: AppTheme.primaryColor.withOpacity(0.08),
             blurRadius: 20,
             offset: const Offset(0, 4),
           ),
@@ -368,7 +368,7 @@ class _HomeScreenState extends State<HomeScreen> {
           width: 56,
           height: 56,
           decoration: BoxDecoration(
-            color: isSelf ? AppTheme.primaryColor.withValues(alpha: 0.1) : AppTheme.accentColor.withValues(alpha: 0.1),
+            color: isSelf ? AppTheme.primaryColor.withOpacity(0.1) : AppTheme.accentColor.withOpacity(0.1),
             borderRadius: BorderRadius.circular(18),
           ),
           child: Center(
@@ -413,7 +413,7 @@ class _HomeScreenState extends State<HomeScreen> {
         borderRadius: BorderRadius.circular(24),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withValues(alpha: 0.06),
+            color: Colors.black.withOpacity(0.06),
             blurRadius: 16,
             offset: const Offset(0, 4),
           ),
@@ -452,7 +452,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       children: [
                         Row(
                           children: [
-                            Icon(Icons.my_location_rounded, size: 14, color: AppTheme.primaryColor.withValues(alpha: 0.7)),
+                            Icon(Icons.my_location_rounded, size: 14, color: AppTheme.primaryColor.withOpacity(0.7)),
                             const SizedBox(width: 4),
                             Text(
                               location.myLocation != null

@@ -76,7 +76,7 @@ class _MapScreenState extends State<MapScreen> with SingleTickerProviderStateMix
                           decoration: BoxDecoration(
                             gradient: LinearGradient(
                               colors: [
-                                Colors.black.withValues(alpha: 0.4),
+                                Colors.black.withOpacity(0.4),
                                 Colors.transparent,
                               ],
                               begin: Alignment.topCenter,
@@ -88,7 +88,7 @@ class _MapScreenState extends State<MapScreen> with SingleTickerProviderStateMix
                               Container(
                                 padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
                                 decoration: BoxDecoration(
-                                  color: Colors.white.withValues(alpha: 0.9),
+                                  color: Colors.white.withOpacity(0.9),
                                   borderRadius: BorderRadius.circular(20),
                                 ),
                                 child: Row(
@@ -110,8 +110,8 @@ class _MapScreenState extends State<MapScreen> with SingleTickerProviderStateMix
                                 padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
                                 decoration: BoxDecoration(
                                   color: location.isSharing
-                                      ? Colors.green.withValues(alpha: 0.9)
-                                      : Colors.grey.withValues(alpha: 0.8),
+                                      ? Colors.green.withOpacity(0.9)
+                                      : Colors.grey.withOpacity(0.8),
                                   borderRadius: BorderRadius.circular(20),
                                 ),
                                 child: Row(
@@ -270,7 +270,7 @@ class _MapScreenState extends State<MapScreen> with SingleTickerProviderStateMix
         borderRadius: BorderRadius.circular(20),
         boxShadow: [
           BoxShadow(
-            color: AppTheme.primaryColor.withValues(alpha: 0.1),
+            color: AppTheme.primaryColor.withOpacity(0.1),
             blurRadius: 20,
             offset: const Offset(0, 4),
           ),

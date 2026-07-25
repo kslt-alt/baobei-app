@@ -43,7 +43,7 @@ class SettingsScreen extends StatelessWidget {
                   borderRadius: BorderRadius.circular(24),
                   boxShadow: [
                     BoxShadow(
-                      color: AppTheme.primaryColor.withValues(alpha: 0.08),
+                      color: AppTheme.primaryColor.withOpacity(0.08),
                       blurRadius: 16,
                       offset: const Offset(0, 4),
                     ),
@@ -153,7 +153,7 @@ class SettingsScreen extends StatelessWidget {
             borderRadius: BorderRadius.circular(20),
             boxShadow: [
               BoxShadow(
-                color: Colors.black.withValues(alpha: 0.04),
+                color: Colors.black.withOpacity(0.04),
                 blurRadius: 10,
                 offset: const Offset(0, 2),
               ),
@@ -196,7 +196,7 @@ class SettingsScreen extends StatelessWidget {
           Container(
             width: 36, height: 36,
             decoration: BoxDecoration(
-              color: AppTheme.primaryColor.withValues(alpha: 0.1),
+              color: AppTheme.primaryColor.withOpacity(0.1),
               borderRadius: BorderRadius.circular(10),
             ),
             child: Icon(icon, size: 20, color: AppTheme.primaryColor),
@@ -229,7 +229,7 @@ class SettingsScreen extends StatelessWidget {
           Container(
             width: 36, height: 36,
             decoration: BoxDecoration(
-              color: AppTheme.accentColor.withValues(alpha: 0.1),
+              color: AppTheme.accentColor.withOpacity(0.1),
               borderRadius: BorderRadius.circular(10),
             ),
             child: Icon(icon, size: 20, color: AppTheme.accentColor),
@@ -257,7 +257,7 @@ class SettingsScreen extends StatelessWidget {
               Container(
                 width: 56, height: 56,
                 decoration: BoxDecoration(
-                  color: Colors.red.withValues(alpha: 0.1),
+                  color: Colors.red.withOpacity(0.1),
                   borderRadius: BorderRadius.circular(16),
                 ),
                 child: const Icon(Icons.logout_rounded, color: Colors.redAccent, size: 28),

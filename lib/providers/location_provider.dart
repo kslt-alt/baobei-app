@@ -13,7 +13,7 @@ class LocationProvider extends ChangeNotifier {
   bool _isLoading = false;
   bool _isSharing = false;
   String? _error;
-  StreamSubscription<RealtimeSubscription>? _subscription;
+  StreamSubscription<RealtimeChannel>? _subscription;
 
   LocationRecord? get myLocation => _myLocation;
   LocationRecord? get partnerLocation => _partnerLocation;

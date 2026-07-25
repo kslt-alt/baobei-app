@@ -34,10 +34,7 @@ class LocationService {
   Future<Position?> getCurrentPosition() async {
     try {
       return await Geolocator.getCurrentPosition(
-        locationSettings: const LocationSettings(
-          accuracy: LocationAccuracy.high,
-          distanceFilter: 10, // 10米以上移动才更新
-        ),
+        // 使用默认精度设置
       );
     } catch (e) {
       return null;

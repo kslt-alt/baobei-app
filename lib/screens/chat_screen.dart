@@ -107,7 +107,7 @@ class _ChatScreenState extends State<ChatScreen> with SingleTickerProviderStateM
                   Container(
                     padding: const EdgeInsets.all(10),
                     decoration: BoxDecoration(
-                      color: AppTheme.accentColor.withValues(alpha: 0.1),
+                      color: AppTheme.accentColor.withOpacity(0.1),
                       borderRadius: BorderRadius.circular(12),
                     ),
                     child: const Icon(Icons.favorite_rounded, color: AppTheme.accentColor, size: 22),
@@ -147,7 +147,7 @@ class _ChatScreenState extends State<ChatScreen> with SingleTickerProviderStateM
             Container(
               width: 80, height: 80,
               decoration: BoxDecoration(
-                color: AppTheme.accentColor.withValues(alpha: 0.1),
+                color: AppTheme.accentColor.withOpacity(0.1),
                 borderRadius: BorderRadius.circular(24),
               ),
               child: const Icon(Icons.favorite_rounded, size: 40, color: AppTheme.accentColor),
@@ -217,7 +217,7 @@ class _ChatScreenState extends State<ChatScreen> with SingleTickerProviderStateM
                     ),
                     boxShadow: isMe ? null : [
                       BoxShadow(
-                        color: Colors.black.withValues(alpha: 0.04),
+                        color: Colors.black.withOpacity(0.04),
                         blurRadius: 8,
                         offset: const Offset(0, 2),
                       ),
@@ -239,7 +239,7 @@ class _ChatScreenState extends State<ChatScreen> with SingleTickerProviderStateM
                   width: 28, height: 28,
                   margin: const EdgeInsets.only(left: 8),
                   decoration: BoxDecoration(
-                    color: AppTheme.primaryColor.withValues(alpha: 0.2),
+                    color: AppTheme.primaryColor.withOpacity(0.2),
                     borderRadius: BorderRadius.circular(10),
                   ),
                   child: const Center(child: Text('我', style: TextStyle(color: AppTheme.primaryColor, fontSize: 10, fontWeight: FontWeight.bold))),
@@ -267,7 +267,7 @@ class _ChatScreenState extends State<ChatScreen> with SingleTickerProviderStateM
         color: Colors.white,
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withValues(alpha: 0.04),
+            color: Colors.black.withOpacity(0.04),
             blurRadius: 10,
             offset: const Offset(0, -2),
           ),

@@ -37,6 +37,7 @@ class _TrajectoryViewState extends State<TrajectoryView> {
               Text('暂无轨迹数据', style: TextStyle(color: AppTheme.textSecondary)),
             ],
           ),
+        ),
         );
       }
     }
@@ -78,7 +79,7 @@ class _TrajectoryViewState extends State<TrajectoryView> {
                   // 完整轨迹（灰色）
                   Polyline(
                     points: points,
-                    color: Colors.grey.withValues(alpha: 0.3),
+                    color: Colors.grey.withOpacity(0.3),
                     strokeWidth: 4,
                   ),
                   // 已走过的轨迹
@@ -130,7 +131,7 @@ class _TrajectoryViewState extends State<TrajectoryView> {
             color: Colors.white,
             boxShadow: [
               BoxShadow(
-                color: Colors.black.withValues(alpha: 0.06),
+                color: Colors.black.withOpacity(0.06),
                 blurRadius: 10,
                 offset: const Offset(0, -2),
               ),
@@ -160,9 +161,9 @@ class _TrajectoryViewState extends State<TrajectoryView> {
                     child: SliderTheme(
                       data: SliderThemeData(
                         activeTrackColor: AppTheme.primaryColor,
-                        inactiveTrackColor: AppTheme.primaryColor.withValues(alpha: 0.2),
+                        inactiveTrackColor: AppTheme.primaryColor.withOpacity(0.2),
                         thumbColor: AppTheme.primaryColor,
-                        overlayColor: AppTheme.primaryColor.withValues(alpha: 0.1),
+                        overlayColor: AppTheme.primaryColor.withOpacity(0.1),
                         trackHeight: 3,
                         thumbShape: const RoundSliderThumbShape(enabledThumbRadius: 8),
                       ),

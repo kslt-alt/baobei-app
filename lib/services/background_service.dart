@@ -81,12 +81,7 @@ void onStart(ServiceInstance service) async {
         );
       }
 
-      final pos = await Geolocator.getCurrentPosition(
-        locationSettings: const LocationSettings(
-          accuracy: LocationAccuracy.high,
-          distanceFilter: 10,
-        ),
-      ).catchError((_) => null);
+      final pos = await Geolocator.getCurrentPosition().catchError((_) => null);
 
       if (pos != null) {
         await SupabaseService.instance.uploadLocation({

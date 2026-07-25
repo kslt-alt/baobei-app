@@ -108,7 +108,7 @@ class _PairingScreenState extends State<PairingScreen> with SingleTickerProvider
                     '一人创建配对码，另一人输入即可绑定',
                     style: TextStyle(
                       fontSize: 14,
-                      color: Colors.white.withValues(alpha: 0.85),
+                      color: Colors.white.withOpacity(0.85),
                     ),
                   ),
                 ],
@@ -125,7 +125,7 @@ class _PairingScreenState extends State<PairingScreen> with SingleTickerProvider
                 borderRadius: BorderRadius.circular(14),
                 boxShadow: [
                   BoxShadow(
-                    color: Colors.black.withValues(alpha: 0.04),
+                    color: Colors.black.withOpacity(0.04),
                     blurRadius: 10,
                     offset: const Offset(0, 4),
                   ),
@@ -186,7 +186,7 @@ class _PairingScreenState extends State<PairingScreen> with SingleTickerProvider
               borderRadius: BorderRadius.circular(24),
               boxShadow: [
                 BoxShadow(
-                  color: AppTheme.primaryColor.withValues(alpha: 0.1),
+                  color: AppTheme.primaryColor.withOpacity(0.1),
                   blurRadius: 20,
                   offset: const Offset(0, 8),
                 ),
@@ -215,7 +215,7 @@ class _PairingScreenState extends State<PairingScreen> with SingleTickerProvider
                     decoration: BoxDecoration(
                       color: Colors.white,
                       borderRadius: BorderRadius.circular(16),
-                      border: Border.all(color: AppTheme.primaryColor.withValues(alpha: 0.3), width: 2),
+                      border: Border.all(color: AppTheme.primaryColor.withOpacity(0.3), width: 2),
                     ),
                     child: Row(
                       mainAxisSize: MainAxisSize.min,
@@ -320,7 +320,7 @@ class _PairingScreenState extends State<PairingScreen> with SingleTickerProvider
               borderRadius: BorderRadius.circular(24),
               boxShadow: [
                 BoxShadow(
-                  color: Colors.black.withValues(alpha: 0.04),
+                  color: Colors.black.withOpacity(0.04),
                   blurRadius: 20,
                   offset: const Offset(0, 8),
                 ),
@@ -348,7 +348,7 @@ class _PairingScreenState extends State<PairingScreen> with SingleTickerProvider
                   decoration: BoxDecoration(
                     color: const Color(0xFFF5F5F5),
                     borderRadius: BorderRadius.circular(16),
-                    border: Border.all(color: AppTheme.primaryColor.withValues(alpha: 0.3), width: 2),
+                    border: Border.all(color: AppTheme.primaryColor.withOpacity(0.3), width: 2),
                   ),
                   child: TextField(
                     controller: _codeController,
