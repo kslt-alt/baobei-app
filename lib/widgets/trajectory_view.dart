@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_map/flutter_map.dart';
+import 'package:geolocator/geolocator.dart';
 import 'package:latlong2/latlong.dart';
 import '../config/theme.dart';
 import '../models/location_record.dart';
@@ -50,15 +51,12 @@ class _TrajectoryViewState extends State<TrajectoryView> {
 
     double totalDistance = 0;
     for (int i = 1; i < widget.records.length; i++) {
-      final p1 = LatLng(
+      totalDistance += Geolocator.distanceBetween(
         widget.records[i - 1].latitude,
         widget.records[i - 1].longitude,
-      );
-      final p2 = LatLng(
         widget.records[i].latitude,
         widget.records[i].longitude,
       );
-      totalDistance += p1.distance(p2);
     }
 
     final currentPoint = _playbackIndex < points.length
