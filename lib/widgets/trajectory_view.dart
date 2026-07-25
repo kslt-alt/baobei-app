@@ -21,46 +21,52 @@ class TrajectoryView extends StatefulWidget {
 
 class _TrajectoryViewState extends State<TrajectoryView> {
   int _playbackIndex = 0;
-  bool _isPlaying = false;
 
   @override
   Widget build(BuildContext context) {
     if (widget.records.isEmpty) {
       return Container(
         color: const Color(0xFFF5F5F5),
-        child: const Center(
+        child: Center(
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
               Icon(Icons.route_outlined, size: 48, color: AppTheme.textHint),
-              SizedBox(height: 8),
+              const SizedBox(height: 8),
               Text('暂无轨迹数据', style: TextStyle(color: AppTheme.textSecondary)),
             ],
           ),
         ),
-        );
-      }
+      );
     }
 
-    final points = widget.records.map((r) => LatLng(r.latitude, r.longitude)).toList();
+    final points = widget.records
+        .map((r) => LatLng(r.latitude, r.longitude))
+        .toList();
+
     final startTime = widget.records.first.createdAt;
     final endTime = widget.records.last.createdAt;
     final totalDuration = endTime.difference(startTime);
 
-    // 计算总距离
     double totalDistance = 0;
     for (int i = 1; i < widget.records.length; i++) {
-      final p1 = LatLng(widget.records[i - 1].latitude, widget.records[i - 1].longitude);
-      final p2 = LatLng(widget.records[i].latitude, widget.records[i].longitude);
+      final p1 = LatLng(
+        widget.records[i - 1].latitude,
+        widget.records[i - 1].longitude,
+      );
+      final p2 = LatLng(
+        widget.records[i].latitude,
+        widget.records[i].longitude,
+      );
       totalDistance += p1.distanceTo(p2);
     }
 
-    // 当前播放到的点
-    final currentPoint = _playbackIndex < points.length ? points[_playbackIndex] : points.last;
+    final currentPoint = _playbackIndex < points.length
+        ? points[_playbackIndex]
+        : points.last;
 
     return Column(
       children: [
-        // 地图
         Expanded(
           child: FlutterMap(
             options: MapOptions(
@@ -70,19 +76,17 @@ class _TrajectoryViewState extends State<TrajectoryView> {
             ),
             children: [
               TileLayer(
-                urlTemplate: 'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
+                urlTemplate:
+                    'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
                 userAgentPackageName: 'com.baobei.app',
               ),
-              // 轨迹线 - 完整的灰线 + 已走过的粉线
               PolylineLayer(
                 polylines: [
-                  // 完整轨迹（灰色）
                   Polyline(
                     points: points,
                     color: Colors.grey.withOpacity(0.3),
                     strokeWidth: 4,
                   ),
-                  // 已走过的轨迹
                   if (_playbackIndex > 0)
                     Polyline(
                       points: points.sublist(0, _playbackIndex + 1),
@@ -91,40 +95,37 @@ class _TrajectoryViewState extends State<TrajectoryView> {
                     ),
                 ],
               ),
-              // 当前点标记
               MarkerLayer(
                 markers: [
                   Marker(
                     point: currentPoint,
                     width: 40,
                     height: 40,
-                    child: const Icon(
+                    child: Icon(
                       Icons.circle,
                       color: AppTheme.primaryColor,
                       size: 16,
                     ),
                   ),
-                  // 起点
                   Marker(
                     point: points.first,
                     width: 40,
                     height: 40,
-                    child: const Icon(Icons.trip_origin, color: Colors.green, size: 24),
+                    child: const Icon(Icons.trip_origin,
+                        color: Colors.green, size: 24),
                   ),
-                  // 终点
                   Marker(
                     point: points.last,
                     width: 40,
                     height: 40,
-                    child: const Icon(Icons.flag_rounded, color: Colors.red, size: 24),
+                    child: const Icon(Icons.flag_rounded,
+                        color: Colors.red, size: 24),
                   ),
                 ],
               ),
             ],
           ),
         ),
-
-        // 底部信息栏
         Container(
           padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
           decoration: BoxDecoration(
@@ -139,7 +140,6 @@ class _TrajectoryViewState extends State<TrajectoryView> {
           ),
           child: Column(
             children: [
-              // 统计信息
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
@@ -149,35 +149,39 @@ class _TrajectoryViewState extends State<TrajectoryView> {
                 ],
               ),
               const SizedBox(height: 12),
-
-              // 时间进度条
               Row(
                 children: [
                   Text(
                     _formatTime(startTime),
-                    style: const TextStyle(fontSize: 11, color: AppTheme.textHint),
+                    style: TextStyle(fontSize: 11, color: AppTheme.textHint),
                   ),
                   Expanded(
                     child: SliderTheme(
                       data: SliderThemeData(
                         activeTrackColor: AppTheme.primaryColor,
-                        inactiveTrackColor: AppTheme.primaryColor.withOpacity(0.2),
+                        inactiveTrackColor:
+                            AppTheme.primaryColor.withOpacity(0.2),
                         thumbColor: AppTheme.primaryColor,
-                        overlayColor: AppTheme.primaryColor.withOpacity(0.1),
+                        overlayColor:
+                            AppTheme.primaryColor.withOpacity(0.1),
                         trackHeight: 3,
-                        thumbShape: const RoundSliderThumbShape(enabledThumbRadius: 8),
+                        thumbShape:
+                            const RoundSliderThumbShape(enabledThumbRadius: 8),
                       ),
                       child: Slider(
                         value: _playbackIndex.toDouble(),
                         min: 0,
-                        max: points.length > 1 ? (points.length - 1).toDouble() : 1,
-                        onChanged: (v) => setState(() => _playbackIndex = v.round()),
+                        max: points.length > 1
+                            ? (points.length - 1).toDouble()
+                            : 1,
+                        onChanged: (v) =>
+                            setState(() => _playbackIndex = v.round()),
                       ),
                     ),
                   ),
                   Text(
                     _formatTime(endTime),
-                    style: const TextStyle(fontSize: 11, color: AppTheme.textHint),
+                    style: TextStyle(fontSize: 11, color: AppTheme.textHint),
                   ),
                 ],
               ),
@@ -193,7 +197,7 @@ class _TrajectoryViewState extends State<TrajectoryView> {
       children: [
         Text(
           value,
-          style: const TextStyle(
+          style: TextStyle(
             fontSize: 18,
             fontWeight: FontWeight.bold,
             color: AppTheme.textPrimary,
@@ -201,7 +205,7 @@ class _TrajectoryViewState extends State<TrajectoryView> {
         ),
         Text(
           label,
-          style: const TextStyle(fontSize: 12, color: AppTheme.textSecondary),
+          style: TextStyle(fontSize: 12, color: AppTheme.textSecondary),
         ),
       ],
     );
@@ -219,6 +223,6 @@ class _TrajectoryViewState extends State<TrajectoryView> {
   }
 
   String _formatTime(DateTime t) {
-    return '${t.hour.toString().padLeft(2, '0')}:${t.minute.toString().padLeft(2, '0')}';
+    return '${t.hour.toString().padLeft(2, "0")}:${t.minute.toString().padLeft(2, "0")}';
   }
 }
