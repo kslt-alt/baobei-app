@@ -1,0 +1,32 @@
+# Flutter
+.flutter-plugins
+.flutter-plugins-dependencies
+.packages
+.dart_tool/
+build/
+
+# IDE
+.idea/
+.vscode/
+*.iml
+
+# Mac
+.DS_Store
+
+# Android
+local.properties
+
+# Gradle
+android/.gradle
+android/app/build
+android/build
+
+# iOS
+ios/Pods
+ios/.symlinks
+ios/Flutter/Generated.xcconfig
+ios/Runner/GeneratedPluginRegistrant.*
+
+# Misc
+*.log
+*.tmp

@@ -1,0 +1,2 @@
+-keep class com.baobei.app.** { *; }
+-dontwarn com.baobei.app.**

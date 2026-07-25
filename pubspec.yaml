@@ -1,0 +1,49 @@
+name: baobei_app
+description: 情侣专属报备App - 定位共享、轨迹回放、状态同步
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.2.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # 状态管理
+  provider: ^6.1.1
+
+  # Supabase 后端
+  supabase_flutter: ^2.3.4
+
+  # 地图
+  flutter_map: ^6.1.0
+  latlong2: ^0.9.0
+
+  # 定位
+  geolocator: ^10.1.0
+  geocoding: ^2.1.1
+
+  # 后台运行
+  flutter_background_service: ^5.0.5
+  flutter_local_notifications: ^17.0.0
+
+  # 存储
+  shared_preferences: ^2.2.2
+  uuid: ^4.3.3
+  intl: ^0.19.0
+
+  # 权限
+  permission_handler: ^11.3.0
+
+  # UI
+  cupertino_icons: ^1.0.6
+  cached_network_image: ^3.3.1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.1
+
+flutter:
+  uses-material-design: true
